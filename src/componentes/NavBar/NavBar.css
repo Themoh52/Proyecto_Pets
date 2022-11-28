@@ -1,0 +1,4 @@
+Navbar{
+display:grid;
+grid-template-columns: auto(3, 1fr);
+}
