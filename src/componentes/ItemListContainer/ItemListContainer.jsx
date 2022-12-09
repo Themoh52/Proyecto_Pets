@@ -1,11 +1,11 @@
+import {useState, useEffect} from "react"
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
+
 const ItemListContainer = () =>{
-    const titulo = "PETS, lo mejor para tu mascota";
-    const presentacion = "Hola y Bienvenido a PETS, donde el bienestar de tu mascota es nuestra prioridad";   
-    return(
+   return(
     <main>
-        <h1>{titulo}</h1>
-            <p>{presentacion}</p>
+        <ItemDetailContainer/>
     </main>
-    )
+    ) 
 }
 export default ItemListContainer
