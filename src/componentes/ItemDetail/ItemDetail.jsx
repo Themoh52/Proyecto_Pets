@@ -5,8 +5,8 @@ const ItemDetail = () =>{
 
     return(
         <div className="row">
-            <div className="col">Detalle</div>
-            <div className="col">
+            <div className="row m-1">Detalle</div>
+            <div className="row">
                <ItemCount/>
             </div>
         </div>
