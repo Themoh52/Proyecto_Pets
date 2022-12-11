@@ -1,20 +1,30 @@
 import {useState, useEffect} from "react"
 import { gFetch } from "../../auxiliar/gFetch"
+import{Link, useParams} from "react-router-dom"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
 
 
 
 const ItemDetailContainer = () =>{
+
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-
+    const {categoriaId} = useParams()
     useEffect(()=>{
-        gFetch()
-        .then(listaCorrecta=>setProducts(listaCorrecta))
-        .catch(error =>{error})
-        .finally(setLoading(false))   
-    },[])
+        if(categoriaId){
+            gFetch()
+            .then(listaCorrecta=>setProducts(listaCorrecta.filter(product=> product.categoria==categoriaId)))
+            .catch(error =>{error})
+            .finally(setLoading(false))   
+        }else{
+            gFetch()
+            .then(listaCorrecta=>setProducts(listaCorrecta))
+            .catch(error =>{error})
+            .finally(setLoading(false))
+        }
+    },[categoriaId])
+
 
     return(
         <div>
@@ -23,25 +33,20 @@ const ItemDetailContainer = () =>{
                 :
                 products.map(products =><div className="col-md-3 m-3" key={products.id}>
                                         <div className="card w-100 mt-5">
-                                            <div className="card-header">
-                                                {products.name}
-                                            </div>
-                                            <div className="card-body">
-                                                <img src={products.foto} alt="imagen del producto en cuestión" />
-                                                {products.price}
-                                            </div>
-                                            <div className="card-footer">
-                                                {products.description}
-                                            </div>
+                                            <Link to={`/detail${products.id}`}>
+                                                <div className="card-header">
+                                                    {products.name}
+                                                </div>
+                                                <div className="card-body">
+                                                    <img src={products.foto} alt="imagen del producto en cuestión" />
+                                                    {products.price}
+                                                </div>
+                                                <div className="card-footer">
+                                                    <button className="btn btn-outline-primary">Descripción del producto</button>
+                                                </div>
+                                            </Link>
                                         </div>
-                                        </div> 
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                                        </div>
                     )
             }
             < ItemDetail/>

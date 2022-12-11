@@ -1,18 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-//import './App.css'//
-import Header from './componentes/Header/Header.jsx'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer'
-import Footer from './componentes/Footer/Footer.jsx'
+import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer'
+import Header from './componentes/Header/Header'
+import Footer from "./componentes/Footer/Footer"
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
 
   return (
     <div>
-    < Header />
-    < ItemListContainer />
-    < Footer />
+      <BrowserRouter>
+      <Header/>  
+      <Routes>
+        <Route path='' element={< ItemListContainer />}></Route>
+        <Route path='/categoria/:categoriaId' element={< ItemDetailContainer/>}></Route>
+        <Route path='/detail:ProductsId' element={< ItemDetailContainer/>}></Route>
+      </Routes>
+      <Footer/>
+      </BrowserRouter>
     </div>
   )
 }

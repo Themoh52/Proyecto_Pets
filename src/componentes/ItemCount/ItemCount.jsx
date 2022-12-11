@@ -1,8 +1,6 @@
-import {useState, useEffect} from "react"
+import {useState} from "react"
 
-const ItemCount = ({stock =10 , ini= 1, onAdd}) =>{
-    const titulo = "PETS, lo mejor para tu mascota";
-    const presentacion = "Hola y Bienvenido a PETS, donde el bienestar de tu mascota es nuestra prioridad";
+export const ItemCount = ({stock =10 , ini= 1, onAdd}) =>{
     const [count, setCount] = useState(ini);
 
     const controladorCount =() => {
@@ -16,14 +14,11 @@ const ItemCount = ({stock =10 , ini= 1, onAdd}) =>{
     }
     return(
     <main>
-        <h1>{titulo}</h1>
-            <p>{presentacion}</p>
             <h2>Contador de Prueba</h2>
-                {count}
                 <button className="btn btn-outline-primary" onClick={controladorCount}>+</button>
+                {count}
                 <button className="btn btn-outline-primary" onClick={resetCount}>-</button>
                 <button className="btn btn-outline-primary" onClick={agregar}>Agregar al Carrito</button>
     </main>
     )
 }
-export default ItemCount

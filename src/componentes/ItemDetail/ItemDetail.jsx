@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import ItemCount from "../ItemCount/ItemCount"
+import {ItemCount} from "../ItemCount/ItemCount"
 
 const ItemDetail = () =>{
 
