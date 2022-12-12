@@ -5,7 +5,7 @@ import "./NavBar.css"
 
 const NavBar=()=> {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className='mb-4' bg="light" expand="lg">
       <Container>
         <NavLink to="">PETS</NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -18,9 +18,10 @@ const NavBar=()=> {
               <NavLink to="/categoria/Ropa"><NavDropdown.Item href="#action/3.2">Ropa</NavDropdown.Item></NavLink>
               <NavLink to="/categoria/Juguetes"><NavDropdown.Item href="#action/3.3">Juguetes</NavDropdown.Item></NavLink>
             </NavDropdown>
-            <NavLink to="">
+            <NavLink to="/">
               <CardWidget/>
             </NavLink>
+            1
           </Nav>
         </Navbar.Collapse>
       </Container>
