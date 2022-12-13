@@ -4,14 +4,13 @@ import { gFetch } from "../../auxiliar/gFetch"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
 const ItemDetailContainer = () =>{
-    const[product, setProduct]= useState([])
-    const {productoId} = useParams()
+    const[product, setProduct]= useState({})
+    const {ProductoId} = useParams()
     useEffect(()=>{
-            gFetch(productoId)
+            gFetch(ProductoId)
             .then(listaCorrecta=>setProduct(listaCorrecta))
             .catch(error =>{error})
-            })
-
+            },[])
     return(
         <ItemDetail
         product={product}/>

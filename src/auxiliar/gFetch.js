@@ -8,8 +8,9 @@ const producto = [
 
 export const gFetch = (id) => {
     return new Promise ((resolve,reject)=>{
+        
         setTimeout(()=>{
-         resolve(id ? producto.find(prod=> prod.id==id) : producto)   
+         resolve(id ? producto.find(prod=> prod.id===id) : producto)   
         },2000)
     })
 }

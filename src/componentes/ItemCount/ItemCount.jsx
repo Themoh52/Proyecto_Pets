@@ -12,7 +12,7 @@ export const ItemCount = ({stock =10 , ini= 1, onAdd}) =>{
     const agregar=()=>onAdd(count)
 
     return(
-    <main>
+    <main className="mb-5 ms-5 column">
                 <button className="btn btn-outline-primary" onClick={controladorCount}>+</button>
                 {count}
                 <button className="btn btn-outline-primary" onClick={resetCount}>-</button>
